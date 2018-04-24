@@ -1,0 +1,14 @@
+
+
+Merge:
+
+git checkout master
+git merge feature
+
+
+Rebase:
+
+ git checkout feature
+ git rebase master
+
+
