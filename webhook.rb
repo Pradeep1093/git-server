@@ -13,3 +13,4 @@ server.start
 
 
 #ruby webhook.rb 8000
+#http://my.host:8000/
