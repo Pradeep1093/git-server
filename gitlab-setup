@@ -16,3 +16,10 @@ https://stackoverflow.com/questions/41956994/initdb-bin-invalid-locale-settings-
 
 export LC_ALL="en_US.UTF-8" and 
 export LC_CTYPE="en_US.UTF-8"
+
+
+################git-clinet ################
+apt-get update && \
+apt-get install git 
+
+###############################
