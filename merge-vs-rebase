@@ -1,0 +1,26 @@
+
+merge-vs-rebase
+
+Given the following history:
+          C---D---E dev
+         /
+    A---B---F---G master
+merge joins two development histories together. It does this by replaying the changes that occurred on your local branch after it diverged on top of the remote branch, and record the result in a new commit. This operation preserves the ancestry of each commit.
+The effect of a merge will be:
+          C---D---E dev
+         /         \
+    A---B---F---G---H master
+rebase will take commits that exist in your local branch and re-apply them on top of the remote branch. This operation re-writes the ancestors of your local commits.
+The effect of a rebase will be:
+                  C'--D'--E' local
+                 /
+    A---B---F---G remote
+
+Master. — merging
+Rel1.0 — prod
+
+ Hot fix. — commit
+
+Rel1.0
+
+Rel2.0 — rel1.0
