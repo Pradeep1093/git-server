@@ -1,0 +1,28 @@
+Steps to create the svn2git migration:
+
+reference:  https://github.com/nirvdrum/svn2git
+
+1. #time svn log -q https://www.svn.com:1080/SVNROOT/{repo_name}| awk -F '|' '/^r/ {sub("^ ", "", $2); sub(" $", "", $2); print $2" = "$2" <"$2"@gmail.com>"}' | sort -u > users.txt
+
+
+2. #time svn2git https://www.svn.com:1090/SVNROOT/{project_name/repo_name} --trunk {/Path/to/trunk} --tags {/Path/to/tags or --notags} --branches {/Path/to/branches or --nobranches} --authors {/Path/to/users.txt}
+
+
+Post Migration steps:
+==================
+Please run the below command to check if the intended branches are generated in the local git repository. If no branches where specified during migration step please ignore this step. 
+#git branch
+Please run the below command to check if the intended tags are generated in the local git repositors. If no tags where specified during migration step please ignore this step. 
+#git tag 
+
+
+Local git configuration:
+#git remote add origin {gitrepopath}
+gitrepopath - It is the gitlab server path for your project. You can get this from the gitlab.server.com by opening your respective project. 
+
+git config --global user.name “Name”
+git config --global user.email “email_id”
+
+Below command pushes all your local branches and tags to the remote git server.
+git push origin --all
+git push origin --tags
